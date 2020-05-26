@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -66,6 +67,36 @@ public class NewsFragment extends AppCompatActivity {
         myRef.child(number).child("Address").setValue(user.address);
         myRef.child(number).child("City").setValue(user.city);
         myRef.child(number).child("Blood Group").setValue(user.bloodgrp);;
+
+        EditText nameField = (EditText) findViewById((R.id.input_name));
+        nameField.setText("");
+
+        EditText nameField1 = (EditText) findViewById(R.id.input_fname);
+        nameField1.setText("");
+
+        EditText nameField2 = (EditText) findViewById(R.id.input_mn);
+        nameField2.setText("");
+
+        EditText nameField3 = (EditText) findViewById(R.id.input_email);
+        nameField3.setText("");
+
+        EditText nameField4 = (EditText) findViewById(R.id.input_nd);
+        nameField4.setText("");
+
+        EditText nameField5 = (EditText) findViewById(R.id.input_add);
+        nameField5.setText("");
+
+        Spinner feedbackSpinner = (Spinner) findViewById(R.id.statespinner);
+        feedbackSpinner.setSelection(0);
+
+        Spinner feedbackSpinner1 = (Spinner) findViewById(R.id.disspinner);
+        feedbackSpinner1.setSelection(0);
+
+        Spinner feedbackSpinner2 = (Spinner) findViewById(R.id.bloodgrp);
+        feedbackSpinner2.setSelection((0));
+
+        Toast.makeText(getApplicationContext(),"Donor Registered Successfully",Toast.LENGTH_SHORT).show();
+
     }
 
     public void signUp(View view) {
@@ -99,8 +130,4 @@ public class NewsFragment extends AppCompatActivity {
 
         writeNewUser(name, name1, name2, name3, name4, name5, feedbackType, feedbackType1, feedbackType2);
     }
-
-
-
-
 }
