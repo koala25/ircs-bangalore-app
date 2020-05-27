@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\sunny\\AndroidStudioProjects\\ircs-bangalore-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
+            "outputFile": "D:\\AppDev\\ircs-bangalore-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\sunny\\.gradle\\caches\\transforms-2\\files-2.1\\093329718cfa32a9316f5d607c63549e\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\hardi\\.gradle\\caches\\transforms-2\\files-2.1\\673ce102898da142e77af19d668d78a5\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\sunny\\.gradle\\caches\\transforms-2\\files-2.1\\0b6ce802b0f7b376cf37fa9d855ea277\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\hardi\\.gradle\\caches\\transforms-2\\files-2.1\\13bdae98f5002aa2874059f9141ffb4d\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
