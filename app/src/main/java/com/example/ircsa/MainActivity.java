@@ -1,6 +1,8 @@
 package com.example.ircsa;
 
 import android.Manifest;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -18,6 +20,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -30,14 +34,14 @@ public class MainActivity extends AppCompatActivity
 
     private FirebaseAuth mAuth;
     private CircleImageView setupImage;
-
+    ClipboardManager clipboardManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         FirebaseUser currentuser = FirebaseAuth.getInstance().getCurrentUser();
         mAuth = FirebaseAuth.getInstance();
-
+        clipboardManager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
          if(currentuser == null){
             Log.i("Output","Not Logged in");
             Intent loginintent = new Intent(MainActivity.this, LoginActivity.class);
@@ -148,6 +152,10 @@ public class MainActivity extends AppCompatActivity
             Intent login_activityIntent=new Intent(MainActivity.this,LoginActivity.class);
             startActivity(login_activityIntent);
             finish();
+        } else if(id == R.id.nav_share) {
+            ClipData clipdata = ClipData.newPlainText("text","https://play.google.com/store/apps/details?id=com.ircs.ircsa");
+            clipboardManager.setPrimaryClip(clipdata);
+            Toast.makeText(getApplicationContext(),"Share link copied to Clipboard",Toast.LENGTH_SHORT).show();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -231,6 +239,48 @@ public class MainActivity extends AppCompatActivity
         myRef.child(user.fname+" "+user.age).child("Question 3").setValue(user.q3);
         myRef.child(user.fname+" "+user.age).child("Question 4").setValue(user.q4);
         myRef.child(user.fname+" "+user.age).child("Question 5").setValue(user.q5);
+        EditText nameField = (EditText) findViewById(R.id.fname);
+        nameField.setText("");
+
+        EditText nameField1 = (EditText) findViewById(R.id.lname);
+        nameField1.setText("");
+
+        EditText nameField2 = (EditText) findViewById(R.id.mn);
+        nameField2.setText("");
+
+        EditText nameField3 = (EditText) findViewById(R.id.amn);
+        nameField3.setText("");
+
+        EditText nameField4 = (EditText) findViewById(R.id.age);
+        nameField4.setText("");
+
+        EditText nameField5 = (EditText) findViewById(R.id.dob);
+        nameField5.setText("");
+
+        EditText nameField7 = (EditText) findViewById(R.id.pa);
+        nameField7.setText("");
+
+        EditText nameField8 = (EditText) findViewById(R.id.email);
+        nameField8.setText("");
+
+        EditText nameField9 = (EditText) findViewById(R.id.q1);
+        nameField9.setText("");
+
+        EditText nameField10 = (EditText) findViewById(R.id.q2);
+        nameField10.setText("");
+
+        EditText nameField11 = (EditText) findViewById(R.id.q3);
+        nameField11.setText("");
+
+        EditText nameField12 = (EditText) findViewById(R.id.q4);
+        nameField12.setText("");
+
+        EditText nameField13 = (EditText) findViewById(R.id.q5);
+        nameField13.setText("");
+
+        Spinner feedbackSpinner = (Spinner) findViewById(R.id.district);
+        feedbackSpinner.setSelection(0);
+        Toast.makeText(getApplicationContext(),"Intern Registered Successfully",Toast.LENGTH_SHORT).show();
 
     };
 

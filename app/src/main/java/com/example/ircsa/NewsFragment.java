@@ -96,12 +96,11 @@ public class NewsFragment extends AppCompatActivity {
 
         Toast.makeText(getApplicationContext(),"Donor Registered Successfully",Toast.LENGTH_SHORT).show();
     }
-
     public void displayToast(String s){
         Toast.makeText(this,s,Toast.LENGTH_LONG).show();
     }
 
-    /*private boolean isValidEmailId(String email){
+    private boolean isValidEmailId(String email){
 
         return Pattern.compile("^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
                 + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
@@ -109,7 +108,7 @@ public class NewsFragment extends AppCompatActivity {
                 + "([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
                 + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
                 + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$").matcher(email).matches();
-    }*/
+    }
 
     public void signUp(View view) {
         final EditText nameField = (EditText) findViewById(R.id.input_name);
@@ -142,10 +141,10 @@ public class NewsFragment extends AppCompatActivity {
             displayToast("Enter email ID");
             return;
         }
-        /*else if(isValidEmailId(name3.trim())){
+        else if(!isValidEmailId(name3.trim())){
             displayToast("Enter a valid email ID");
             return;
-        }*/
+        }
 
         final EditText nameField4 = (EditText) findViewById(R.id.input_nd);
         String name4 = nameField4.getText().toString();
